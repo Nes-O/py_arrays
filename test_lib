@@ -22,3 +22,24 @@ def haversine(lon1: float, lat1: float, lon2: float, lat2: float) -> float:
     c = 2 * asin(sqrt(a))
     r = 6371 # Radius of earth in kilometers
     return c * r
+
+
+# Example usage for a stock (e.g., Apple - AAPL)
+stock_ticker = 'AAPL'
+
+# Get stock data
+stock_data = get_stock_data(stock_ticker)
+
+# Get stock news
+news_headlines = get_stock_news(stock_ticker)
+
+# Analyze sentiment for each news headline
+sentiments = [analyze_sentiment(headline) for headline in news_headlines]
+
+# Print stock data
+print(f"Stock Data for {stock_ticker}:\n{stock_data}")
+
+# Print news headlines and sentiments
+print("\nNews Headlines:")
+for headline, sentiment in zip(news_headlines, sentiments):
+    print(f"- {headline} (Sentiment: {sentiment})")
